@@ -1,10 +1,9 @@
 # Beburos 🧠💪  
-A personal AI health companion built for the NVIDIA Agent Intelligence Toolkit challenge.
-
+A personal AI health companion
 ---
 
 ## 🧠 What It Does  
-Beburos is a minimal agent that takes daily health inputs—**sleep**, **strain**, and **recovery**—and returns smart, structured guidance using logic and future LLM reasoning.
+Beburos is a minimal agent that takes daily health inputs and returns smart, structured guidance using logic and future LLM reasoning.
 
 ---
 
