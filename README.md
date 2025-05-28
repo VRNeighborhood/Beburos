@@ -29,7 +29,10 @@ beburos/
 ├── llm.py                # Handles GPT-4 interaction
 ├── helper.py             # Log utils + check-in loader
 ├── CLI_agent.py          # (Optional) terminal-mode access
-├── archive/              # Legacy files (not used in core app)
+├── archive/
+│   ├── checkin_app.py
+│   ├── gradio_app.py
+│   └── gradio_chat.py
 ├── logs/                 # Check-in history (ignored in Git)
 │   └── .gitkeep
 ├── .env                  # (User-provided) OpenAI key (not tracked)

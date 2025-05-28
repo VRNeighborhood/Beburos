@@ -1,4 +1,4 @@
-archive/
+# archive/
 .env
 logs/*
 !logs/.gitkeep
