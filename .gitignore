@@ -1,4 +1,10 @@
-__pycache__/
+archive/
 .env
-logs/
+logs/*
+!logs/.gitkeep
 *.pyc
+__pycache__/
+venv/
+venv311/
+
+
