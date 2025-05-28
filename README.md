@@ -8,10 +8,10 @@ Built with Gradio, OpenAI, and Python 3.11.
 
 ## 📦 Features
 
-- ✅ Manual input of WHOOP-style metrics
-- ✅ Personalized guidance via OpenAI (GPT-4)
-- ✅ Friendly chat or structured check-in mode
-- ✅ Modular design for easy customization
+- ✅ Manual input of WHOOP-style metrics  
+- ✅ Personalized guidance via OpenAI (GPT-4)  
+- ✅ Friendly chat or structured check-in mode  
+- ✅ Modular design for easy customization  
 - ✅ Clean architecture, log tracking, `.env` support
 
 ---
@@ -37,48 +37,58 @@ beburos/
 ├── requirements.txt      # Frozen working dependencies
 └── README.md             # You are here
 
-⚙️ Installation
-1. 🧪 Create and activate a virtual environment (Python 3.11)
 
+### 1. Create and activate a virtual environment (Python 3.11)
+
+```bash
 py -3.11 -m venv venv311
 .\venv311\Scripts\Activate.ps1
 
-2. 📦 Install dependencies
+### 2. Install dependencies
+    pip install -r requirements.txt
 
-pip install -r requirements.txt
+### 3. Add your OpenAI key
+    OPENAI_API_KEY=your-openai-key-here
 
-3. 🔑 Create a .env file with your OpenAI key
+🚀 How to Run Beburos
+🟦 Option 1: Windows Users – Double-click to launch
+Use the included launch.bat:
+    📁 BEBUROS/
+    ├── launch.bat ← Double-click this file to run the full UI
+It activates the virtual environment and runs Beburos.
 
-OPENAI_API_KEY=your-openai-key-here
+🖥️ Option 2: Command-Line (Git Bash or terminal)
+    make run
 
-🚀 Usage
-Run the full Beburos app (check-in + chat):
+Other commands:
+    make install     # Create venv + install dependencies
+    make clean        # Remove venv + cache files
+📝 Requires make to be installed (works best in Git Bash or WSL)
 
-python main.py --mode app
-
-Optional modes:
-python main.py --mode checkin   # Health check-in form only
-python main.py --mode chat      # Chat-only mood interface
-python CLI_agent.py             # Lightweight CLI interface
+🔑 API Key Reminder
+You’ll need a .env file containing:
+    OPENAI_API_KEY=your-openai-key
 
 🧾 Logs & Privacy
-Check-ins are logged to logs/checkins.jsonl, but the logs/ folder is .gitignored.
-To preserve the folder in Git, a .gitkeep is used.
+    Check-ins are logged to logs/checkins.jsonl
+    The logs/ folder is .gitignored
+    A .gitkeep ensures the folder remains in the repo without logs
 
 🧹 Developer Notes
-Old experimental files are in the archive/ folder
-All .pyc, .env, venv, and logs are excluded from version control
-This repo runs cleanly in any environment using Python 3.11
+    Legacy files are stored in the archive/ folder
+    .pyc, .env, venv/, and logs are excluded from Git
+    Runs cleanly with Python 3.11 and a locked requirements.txt
 
 🌐 Deployment Ready
-You can deploy this on:
-Hugging Face Spaces (Gradio-ready)
-Streamlit Cloud (with minor UI adaptation)
-Local server or internal health dashboards
+You can deploy Beburos on:
+    Hugging Face Spaces (Gradio-ready)
+    Streamlit Cloud (with minor UI adaptation)
+    Local server or private health tools
 
 🤝 License
-MIT License © 2025 VRNeighborhood
-Built for the NVIDIA Agent Intelligence Toolkit Challenge
+    MIT License © 2025 VRNeighborhood
+    Built for the NVIDIA Agent Intelligence Toolkit Challenge
 
-Want to expand Beburos with wearable integrations, supplement guidance, or mood-driven protocol shifts? Fork it and let's collaborate!
-Would you like this saved directly to your repo as `README.md` and committed? I can also generate a `Makefile` or deployment config next.
+---
+
+
