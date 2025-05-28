@@ -1,100 +1,84 @@
-# Beburos 🧠💪  
-*A personal AI health companion built for daily wellness and recovery optimization.*
+# 🧠 Beburos – AI Health Companion
 
-![License](https://img.shields.io/github/license/VRNeighborhood/beburos?style=flat-square)
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg?style=flat-square)
+Beburos is a personal health agent that transforms your daily physiological inputs — such as sleep, recovery, and strain — into smart, structured wellness recommendations using GPT-4.
 
----
-
-## 🧠 What It Does
-
-**Beburos** is a lightweight health agent that takes your daily metrics—like **sleep**, **strain**, and **recovery**—and returns smart, structured guidance using simple heuristics and LLM reasoning (via OpenAI).  
-
-You can interact via:
-- A **form-based check-in**
-- A **chat-style mood interface**
-- A **CLI for terminal users**
+Built with Gradio, OpenAI, and Python 3.11.
 
 ---
 
-## 🔍 Features
+## 📦 Features
 
-- Manual input for WHOOP-style health metrics  
-- Personalized recommendations in motivational, coach-like language  
-- Gradio interfaces for both form and chat
-- CSV + JSONL logging for insights over time  
-- Modular core logic for future expansion (voice, sensors, etc.)
-
----
-
-## ⚙️ Architecture
-
-User → Gradio UI (form/chat) → Metric-to-prompt builder → OpenAI LLM → Personalized feedback → Logs
-
-| Component         | Role                                              |
-|------------------|---------------------------------------------------|
-| `main.py`        | CLI entry point (mode: app, chat, checkin)        |
-| `app.py`         | Combined app UI (form + chat)                     |
-| `logic.py`       | Data handling, LLM prompt submission              |
-| `beburos_core.py`| Health logic + LLM interface                      |
-| `gradio_chat.py` | Mood-based chat UI                                |
-| `checkin_app.py` | Daily check-in form only                          |
-| `prompt_utils.py`| Prompt crafting from metrics                      |
-| `helper.py`      | JSON/CSV logging and check-in retrieval           |
+- ✅ Manual input of WHOOP-style metrics
+- ✅ Personalized guidance via OpenAI (GPT-4)
+- ✅ Friendly chat or structured check-in mode
+- ✅ Modular design for easy customization
+- ✅ Clean architecture, log tracking, `.env` support
 
 ---
-2. Install dependencies
+
+## 🛠️ Project Structure
+
+```plaintext
+beburos/
+├── main.py               # Launch entry point (app/chat/checkin)
+├── app.py                # Unified Gradio interface
+├── ui.py                 # Gradio components (check-in + chat)
+├── logic.py              # Submission logic + check-in handling
+├── beburos_core.py       # Central prompt + LLM brain
+├── prompt_utils.py       # Formats prompts from metrics
+├── llm.py                # Handles GPT-4 interaction
+├── helper.py             # Log utils + check-in loader
+├── CLI_agent.py          # (Optional) terminal-mode access
+├── archive/              # Legacy files (not used in core app)
+├── logs/                 # Check-in history (ignored in Git)
+│   └── .gitkeep
+├── .env                  # (User-provided) OpenAI key (not tracked)
+├── .gitignore            # Ensures clean version control
+├── requirements.txt      # Frozen working dependencies
+└── README.md             # You are here
+
+⚙️ Installation
+1. 🧪 Create and activate a virtual environment (Python 3.11)
+
+py -3.11 -m venv venv311
+.\venv311\Scripts\Activate.ps1
+
+2. 📦 Install dependencies
+
 pip install -r requirements.txt
 
-3. Set your API key
-OPENAI_API_KEY=your-key-here
+3. 🔑 Create a .env file with your OpenAI key
 
-4. Run the app
-# Full UI (check-in + chat)
+OPENAI_API_KEY=your-openai-key-here
+
+🚀 Usage
+Run the full Beburos app (check-in + chat):
+
 python main.py --mode app
 
-# Standalone daily check-in
-python main.py --mode checkin
+Optional modes:
+python main.py --mode checkin   # Health check-in form only
+python main.py --mode chat      # Chat-only mood interface
+python CLI_agent.py             # Lightweight CLI interface
 
-# Standalone chat with mood input
-python main.py --mode chat
+🧾 Logs & Privacy
+Check-ins are logged to logs/checkins.jsonl, but the logs/ folder is .gitignored.
+To preserve the folder in Git, a .gitkeep is used.
 
-🛠️ Project Structure
-beburos/
-├── app.py              # Unified interface
-├── main.py             # Launcher
-├── logic.py            # Core logic and handling
-├── beburos_core.py     # ask_beburos() logic
-├── gradio_chat.py      # Chat interface
-├── checkin_app.py      # Health check-in UI
-├── CLI_agent.py        # CLI-based input (optional)
-├── llm.py              # LLM API connection
-├── prompt_utils.py     # Prompt creation logic
-├── helper.py           # Logging and file utilities
-├── ui.py               # Gradio components
-├── .gitignore
-├── README.md
-└── LICENSE
+🧹 Developer Notes
+Old experimental files are in the archive/ folder
+All .pyc, .env, venv, and logs are excluded from version control
+This repo runs cleanly in any environment using Python 3.11
 
-🛣️ Roadmap
-✅ Current: Mood + health inputs to LLM
+🌐 Deployment Ready
+You can deploy this on:
+Hugging Face Spaces (Gradio-ready)
+Streamlit Cloud (with minor UI adaptation)
+Local server or internal health dashboards
 
-🔄 In Progress: Persistent chat memory
+🤝 License
+MIT License © 2025 VRNeighborhood
+Built for the NVIDIA Agent Intelligence Toolkit Challenge
 
-🔜 Coming Soon:
-
-WHOOP API integration
-
-Multi-day trend analysis
-
-Supplement + training guidance
-
-Guided recovery routines
-
-Voice assistant mode
-
-📄 License
-Apache 2.0 License
-© VRNeighborhood – Built for the NVIDIA Agent Intelligence Toolkit
-
-If you like this project, consider giving it a ⭐ on GitHub!
+Want to expand Beburos with wearable integrations, supplement guidance, or mood-driven protocol shifts? Fork it and let's collaborate!
+Would you like this saved directly to your repo as `README.md` and committed? I can also generate a `Makefile` or deployment config next.
