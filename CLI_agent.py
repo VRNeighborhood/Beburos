@@ -1,5 +1,6 @@
 # cli_agent.py – Lightweight CLI test runner for Beburos logic
 import os
+from dotenv import load_dotenv  # ✅ Add this line
 from logic import ask_beburos
 
 # Load .env variables (for DEBUG, MOCK_LLM, etc.)
