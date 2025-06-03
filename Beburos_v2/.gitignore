@@ -1,0 +1,14 @@
+# Environment
+venv/
+.env
+__pycache__/
+*.pyc
+
+# Data + logs
+*.log
+logs/
+checkins/
+daily_logs/
+data/user_profiles/labs/
+data/user_profiles/biometric_history
+
